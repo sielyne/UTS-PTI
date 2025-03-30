@@ -44,19 +44,15 @@ function startGame() {
     updateStatus();
 }
 
-// Fungsi untuk berpindah lokasi
-
-
 
 function moveTo(location) {
     if (money < 10) {
         alert('Uang anda belum mencukupi untuk pergi');
-        return; // Menghentikan eksekusi jika uang tidak cukup
+        return;
     }
     
     alert(`Anda telah pergi ke ${location}`);
 
-    // Menyesuaikan status berdasarkan lokasi
     happiness = Math.min(happiness + 10, 100);
     money -= 10;
 
@@ -64,7 +60,6 @@ function moveTo(location) {
 }
 
 
-// Fungsi untuk memperbarui status pemain
 function updateStatus() {
     document.getElementById('hunger').innerText = hunger;
     document.getElementById('energy').innerText = energy;
@@ -73,7 +68,6 @@ function updateStatus() {
     document.getElementById('money').innerText = money;
 }
 
-// Fungsi untuk memperbarui salam
 function updateGreeting() {
     const hours = new Date().getHours();
     let greeting = '';
@@ -87,15 +81,14 @@ function updateGreeting() {
     document.getElementById('greeting').innerText = greeting;
 }
 
-// Menangani tombol panah untuk navigasi
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowRight') {
-        moveTo('Beach'); // Contoh: pindah ke pantai
+        moveTo('Beach'); 
     } else if (event.key === 'ArrowLeft') {
-        moveTo('Home'); // Contoh: pindah ke rumah
+        moveTo('Home'); 
     } else if (event.key === 'ArrowUp') {
-        moveTo('Temple'); // Contoh: pindah ke kuil
+        moveTo('Temple'); 
     } else if (event.key === 'ArrowDown') {
-        moveTo('Lake'); // Contoh: pindah ke danau
+        moveTo('Lake'); 
     }
 });

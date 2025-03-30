@@ -96,7 +96,7 @@ body {
     cursor: pointer;
 }
 
-/* Styling Tombol Navigasi */
+
 .swiper-button-next,
 .swiper-button-prev {
     color: rgb(36, 156, 34);
@@ -112,7 +112,6 @@ body {
     align-items: center;
 }
 
-/* Styling Pagination */
 .swiper-pagination-bullet {
     background-color: white;
     opacity: 0.5;
