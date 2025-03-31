@@ -25,10 +25,24 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+function stoploop(selectedAvatar) {
+    var swiper = new Swiper('.swiper-container', {
+        loop: false,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        }
+    });
+}
 
 function selectAvatar(selectedAvatar) {
     avatar = selectedAvatar;
     alert(`Avatar ${selectedAvatar} dipilih!`);
+    swiper.disable();
 }
 
 
