@@ -10,6 +10,7 @@
 </head>
 <body>
     <div id="title">
+        <img src="logo1.png">
         <h1>Ucup Menjelajah Nusantara</h1>
     </div>
     <div id="game-container">
@@ -41,28 +42,41 @@
                 <button id="next-button" onclick="startGame()">Next</button>
             </div>
         </div>
-
-        <div id="game-interface" style="display: none;">
-            <div id="status">
-                <h3>Status Pemain</h3>
-                <div>Hunger: <span id="hunger">50</span></div>
-                <div>Energy: <span id="energy">50</span></div>
-                <div>Hygiene: <span id="hygiene">50</span></div>
-                <div>Happiness: <span id="happiness">50</span></div>
-                <div>Money: <span id="money">100</span></div>
+    </div>
+    <div id="game-interface" style="display: none;">
+        <div id="status">
+            <div class="life-bar">
+                <span>Happiness</span>
+                <div class="bar"><div class="fill" id="happiness-bar" style="width: 50%;"></div></div>
             </div>
-            <div id="greeting"></div>
-            <div id="locations">
-                <button onclick="moveTo('Home')">Home</button>
-                <button onclick="moveTo('Beach')">Beach</button>
-                <button onclick="moveTo('Lake')">Lake</button>
-                <button onclick="moveTo('Temple')">Temple</button>
-                <button onclick="moveTo('Mountain')">Mountain</button>
+            <div class="life-bar">
+                <span>Hunger</span>
+                <div class="bar"><div class="fill" id="hunger-bar" style="width: 50%;"></div></div>
+            </div>
+            <div class="life-bar">
+                <span>Money</span>
+                <div class="bar"><div class="fill" id="money-bar" style="width: 100%;"></div></div>
+                <span id="money">Rp. 25.000.000</span>
+            </div>
+            <div class="life-bar">
+                <span>Health</span>
+                <div class="bar"><div class="fill" id="health-bar" style="width: 50%;"></div></div>
+            </div>
+            <div class="life-bar">
+                <span>Energy</span>
+                <div class="bar"><div class="fill" id="energy-bar" style="width: 50%;"></div></div>
             </div>
         </div>
+        
+        <div id="greeting"></div>
+        <div id="locations">
+            <button onclick="moveTo('Home')">Home</button>
+            <button onclick="moveTo('Beach')">Beach</button>
+            <button onclick="moveTo('Lake')">Lake</button>
+            <button onclick="moveTo('Temple')">Temple</button>
+            <button onclick="moveTo('Mountain')">Mountain</button>
+        </div>
     </div>
-    
-    
     <script src="script.js"></script>
 </body>
 </html>

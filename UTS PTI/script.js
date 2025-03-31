@@ -25,24 +25,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-function stoploop(selectedAvatar) {
-    var swiper = new Swiper('.swiper-container', {
-        loop: false,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        }
-    });
-}
+let swiper = new Swiper('.swiper-container', {
+    loop: true,
+    autoplay: { delay: 2500 },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    }
+});
 
 function selectAvatar(selectedAvatar) {
     avatar = selectedAvatar;
     alert(`Avatar ${selectedAvatar} dipilih!`);
-    swiper.disable();
+    swiper.autoplay.stop();
 }
 
 
@@ -52,7 +51,7 @@ function startGame() {
         alert('Silakan pilih avatar dan masukkan nama!');
         return;
     }
-    document.getElementById('avatar-selection').style.display = 'none';
+    document.getElementById('game-container').style.display = 'none';
     document.getElementById('game-interface').style.display = 'block';
     updateGreeting();
     updateStatus();
