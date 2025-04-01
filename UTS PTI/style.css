@@ -35,10 +35,10 @@ body {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.66);
     position: absolute;
-    top: 12vh;
+    top: 6vh;
     width: 100%;
     align-items: center;
-    max-width: 80%;
+    max-width: 100%;
     left: 0;
 }
 
@@ -53,6 +53,7 @@ body {
     display: flex; 
     justify-content: space-around; 
     width: 100%; 
+    gap: 4px;
 }
 
 .life-bar {
@@ -194,14 +195,17 @@ body {
 }
 
 .bar {
+    display: flex;
     width: 100px;
     height: 15px;
     background: #ddd;
     border-radius: 10px;
     overflow: hidden;
+
 }
 
 .fill {
+    display: flex;
     height: 100%;
     background: green;
 }

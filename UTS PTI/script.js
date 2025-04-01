@@ -83,25 +83,68 @@ function updateStatus() {
     updateTime();
 }
 
+let gameTime = 0; // Game time in minutes
+let gameStartTime = new Date(); // Start time
+
+// Initial values for status bars
+let happiness = 100;
+let hunger = 100;
+let health = 100;
+let energy = 100;
+
 function updateTime() {
-    const now = new Date();
-    const options = { hour: '2-digit', minute: '2-digit', hour12: true };
-    const timeString = now.toLocaleTimeString('id-ID', options); // Format time for Indonesia
-    document.getElementById('time').innerText = timeString; // Update time display
+    // Increment game time by 1 minute
+    gameTime++;
+
+    // Calculate the game hours and minutes
+    const gameHours = Math.floor(gameTime / 60) + 12; // Starting from 12 PM
+    const gameMinutes = gameTime % 60;
+
+    // Update the time display
+    const formattedTime = `${gameHours % 24}:${String(gameMinutes).padStart(2, '0')} ${gameHours >= 12 ? 'PM' : 'AM'}`;
+    document.getElementById("current-time").innerText = formattedTime;
+
+    // Update the greeting based on game time
+    updateGreeting(gameHours);
+
+    // Decrease status bars every minute
+    decreaseStatusBars();
 }
 
-function updateGreeting() {
-    const hours = new Date().getHours();
-    let greeting = '';
-    if (hours < 12) {
-        greeting = 'Selamat Pagi!';
-    } else if (hours < 18) {
-        greeting = 'Selamat Siang!';
+function updateGreeting(hours) {
+    let greeting;
+    if (hours >= 12 && hours < 17) {
+        greeting = "Good Afternoon!";
+    } else if (hours >= 17 && hours < 21) {
+        greeting = "Good Evening!";
     } else {
-        greeting = 'Selamat Malam!';
+        greeting = "Good Night!";
     }
-    document.getElementById('greeting').innerText = greeting;
+    document.getElementById("greeting").innerText = greeting;
 }
+
+function decreaseStatusBars() {
+    // Decrease each status bar every minute
+    happiness = Math.max(0, happiness - 1); // Decrease happiness
+    hunger = Math.max(0, hunger - 2); // Decrease hunger faster
+    health = Math.max(0, health - 1); // Decrease health
+    energy = Math.max(0, energy - 1); // Decrease energy
+
+    // Update the status bar display
+    document.getElementById("happiness").innerText = happiness;
+    document.getElementById("hunger").innerText = hunger;
+    document.getElementById("health").innerText = health;
+    document.getElementById("energy").innerText = energy;
+
+    // Update the visual representation of the bars
+    document.getElementById("happiness-bar").style.width = `${happiness}%`;
+    document.getElementById("hunger-bar").style.width = `${hunger}%`;
+    document.getElementById("health-bar").style.width = `${health}%`;
+    document.getElementById("energy-bar").style.width = `${energy}%`;
+}
+
+// Call updateTime every second (1 second in real life = 1 minute in game)
+setInterval(updateTime, 1000);
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'ArrowRight') {
