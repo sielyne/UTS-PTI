@@ -80,6 +80,14 @@ function updateStatus() {
     document.getElementById('hygiene').innerText = hygiene;
     document.getElementById('happiness').innerText = happiness;
     document.getElementById('money').innerText = money;
+    updateTime();
+}
+
+function updateTime() {
+    const now = new Date();
+    const options = { hour: '2-digit', minute: '2-digit', hour12: true };
+    const timeString = now.toLocaleTimeString('id-ID', options); // Format time for Indonesia
+    document.getElementById('time').innerText = timeString; // Update time display
 }
 
 function updateGreeting() {
