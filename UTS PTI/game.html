@@ -13,6 +13,34 @@
         <img src="logo1.png">
         <h1>Ucup Menjelajah Nusantara</h1>
     </div>
+
+    <div id="status" style="display: none;">
+        <div id="greeting"></div>
+        <div id="status-life">
+            <div class="life-bar">
+                <span>Happiness</span>
+                <div class="bar"><div class="fill" id="happiness-bar" style="width: 50%;"></div></div>
+            </div>
+            <div class="life-bar">
+                <span>Hunger</span>
+                <div class="bar"><div class="fill" id="hunger-bar" style="width: 50%;"></div></div>
+            </div>
+            <div class="life-bar">
+                <span>Money</span>
+                <div class="bar"><div class="fill" id="money-bar" style="width: 100%;"></div></div>
+                <span id="money">Rp. 25.000.000</span>
+                </div>
+            <div class="life-bar">
+                <span>Health</span>
+                <div class="bar"><div class="fill" id="health-bar" style="width: 50%;"></div></div>
+            </div>
+            <div class="life-bar">
+                <span>Energy</span>
+                <div class="bar"><div class="fill" id="energy-bar" style="width: 50%;"></div></div>
+            </div>
+        </div>
+    </div>
+
     <div id="game-container">
         <div id="avatar-selection">
             <h2>Pilih avatarmu!</h2>
@@ -43,32 +71,9 @@
             </div>
         </div>
     </div>
+
     <div id="game-interface" style="display: none;">
-        <div id="status">
-            <div class="life-bar">
-                <span>Happiness</span>
-                <div class="bar"><div class="fill" id="happiness-bar" style="width: 50%;"></div></div>
-            </div>
-            <div class="life-bar">
-                <span>Hunger</span>
-                <div class="bar"><div class="fill" id="hunger-bar" style="width: 50%;"></div></div>
-            </div>
-            <div class="life-bar">
-                <span>Money</span>
-                <div class="bar"><div class="fill" id="money-bar" style="width: 100%;"></div></div>
-                <span id="money">Rp. 25.000.000</span>
-            </div>
-            <div class="life-bar">
-                <span>Health</span>
-                <div class="bar"><div class="fill" id="health-bar" style="width: 50%;"></div></div>
-            </div>
-            <div class="life-bar">
-                <span>Energy</span>
-                <div class="bar"><div class="fill" id="energy-bar" style="width: 50%;"></div></div>
-            </div>
-        </div>
         
-        <div id="greeting"></div>
         <div id="locations">
             <button onclick="moveTo('Home')">Home</button>
             <button onclick="moveTo('Beach')">Beach</button>

@@ -52,6 +52,7 @@ function startGame() {
         return;
     }
     document.getElementById('game-container').style.display = 'none';
+    document.getElementById('status').style.display = 'flex';
     document.getElementById('game-interface').style.display = 'block';
     updateGreeting();
     updateStatus();
