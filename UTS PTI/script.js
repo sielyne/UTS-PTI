@@ -86,12 +86,6 @@ function updateStatus() {
 let gameTime = 0; // Game time in minutes
 let gameStartTime = new Date(); // Start time
 
-// Initial values for status bars
-let happiness = 100;
-let hunger = 100;
-let health = 100;
-let energy = 100;
-
 function updateTime() {
     // Increment game time by 1 minute
     gameTime++;
@@ -106,41 +100,18 @@ function updateTime() {
 
     // Update the greeting based on game time
     updateGreeting(gameHours);
-
-    // Decrease status bars every minute
-    decreaseStatusBars();
 }
 
 function updateGreeting(hours) {
     let greeting;
     if (hours >= 12 && hours < 17) {
-        greeting = "Good Afternoon!";
+        greeting = "Good Afternoon";
     } else if (hours >= 17 && hours < 21) {
-        greeting = "Good Evening!";
+        greeting = "Good Evening";
     } else {
-        greeting = "Good Night!";
+        greeting = "Good Night";
     }
-    document.getElementById("greeting").innerText = greeting;
-}
-
-function decreaseStatusBars() {
-    // Decrease each status bar every minute
-    happiness = Math.max(0, happiness - 1); // Decrease happiness
-    hunger = Math.max(0, hunger - 2); // Decrease hunger faster
-    health = Math.max(0, health - 1); // Decrease health
-    energy = Math.max(0, energy - 1); // Decrease energy
-
-    // Update the status bar display
-    document.getElementById("happiness").innerText = happiness;
-    document.getElementById("hunger").innerText = hunger;
-    document.getElementById("health").innerText = health;
-    document.getElementById("energy").innerText = energy;
-
-    // Update the visual representation of the bars
-    document.getElementById("happiness-bar").style.width = `${happiness}%`;
-    document.getElementById("hunger-bar").style.width = `${hunger}%`;
-    document.getElementById("health-bar").style.width = `${health}%`;
-    document.getElementById("energy-bar").style.width = `${energy}%`;
+    document.getElementById("greeting").innerText = greeting + ' ' + playerName + '!';
 }
 
 // Call updateTime every second (1 second in real life = 1 minute in game)
