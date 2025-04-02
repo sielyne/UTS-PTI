@@ -16,46 +16,76 @@
 
     <div id="status" style="display: none;">
         <div id="status-container">
-            <div id="status">
-                <div id="greeting-time">
-                    <span id="greeting">Good Afternoon!</span>
-                    <span id="time" id="current-time">12:00 PM</span>
+            <div id="greeting-time">
+                <span id="greeting">Good Afternoon!</span>
+                <span id="current-time">12:00 PM</span>
+            </div>
+            <div id="status-life">
+                <div class="life-bar">
+                    <span>Happiness</span>
+                    <div class="bar"><div class="fill" id="happiness-bar" style="width: 50%;"></div></div>
+                    <span id="happiness">50</span>
                 </div>
-                <div id="status-life">
-                    <div id="status-life">
-                        <div class="life-bar">
-                            <span>Happiness</span>
-                            <div class="bar"><div class="fill" id="happiness-bar" style="width: 50%;"></div></div>
-                            <span id="happiness">50</span>
-                        </div>
-                        <div class="life-bar">
-                            <span>Hunger</span>
-                            <div class="bar"><div class="fill" id="hunger-bar" style="width: 50%;"></div></div>
-                            <span id="hunger">50</span>
-                        </div>
-                        <div class="life-bar">
-                            <span>Money</span>
-                            <div class="bar"><div class="fill" id="money-bar" style="width: 100%;"></div></div>
-                            <span id="money">Rp. 25.000.000</span>
-                        </div>
-                        <div class="life-bar">
-                            <span>Health</span>
-                            <div class="bar"><div class="fill" id="health-bar" style="width: 50%;"></div></div>
-                            <span id="health">50</span>
-                        </div>
-                        <div class="life-bar">
-                            <span>Energy</span>
-                            <div class="bar"><div class="fill" id="energy-bar" style="width: 50%;"></div></div>
-                            <span id="energy">50</span>
-                        </div>
-                    </div>
+                <div class="life-bar">
+                    <span>Hunger</span>
+                    <div class="bar"><div class="fill" id="hunger-bar" style="width: 50%;"></div></div>
+                    <span id="hunger">50</span>
                 </div>
-                <div id="activity-details">
-                    <!-- Activity details will go here -->
+                <div class="life-bar">
+                    <span>Money</span>
+                    <div class="bar"><div class="fill" id="money-bar" style="width: 100%;"></div></div>
+                    <span id="money">Rp. 25.000.000</span>
+                </div>
+                <div class="life-bar">
+                    <span>Health</span>
+                    <div class="bar"><div class="fill" id="health-bar" style="width: 50%;"></div></div>
+                    <span id="health">50</span>
+                </div>
+                <div class="life-bar">
+                    <span>Energy</span>
+                    <div class="bar"><div class="fill" id="energy-bar" style="width: 50%;"></div></div>
+                    <span id="energy">50</span>
                 </div>
             </div>
         </div>
-        
+    </div>
+
+    <div id="activity-details">
+        <div id="activity-home">
+            <button onclick="doActivity('Work')">Home</button>
+            <button onclick="doActivity('Eat')">Beach</button>
+            <button onclick="doActivity('Swim')">Lake</button>
+            <button onclick="doActivity('Clean')">Temple</button>
+            <button onclick="doActivity('sleep')">Mountain</button>
+        </div>
+        <div id="activity-lake" style="display: none;">
+            <button onclick="doActivity('Home')">Home</button>
+            <button onclick="doActivity('Beach')">Beach</button>
+            <button onclick="doActivity('Lake')">Lake</button>
+            <button onclick="doActivity('Temple')">Temple</button>
+            <button onclick="doActivity('Mountain')">Mountain</button>
+        </div>
+        <div id="activity-mountain" style="display: none;">
+            <button onclick="doActivity('Home')">Home</button>
+            <button onclick="doActivity('Beach')">Beach</button>
+            <button onclick="doActivity('Lake')">Lake</button>
+            <button onclick="doActivity('Temple')">Temple</button>
+            <button onclick="doActivity('Mountain')">Mountain</button>
+        </div>
+        <div id="activity-temple" style="display: none;">
+            <button onclick="doActivity('Home')">Home</button>
+            <button onclick="doActivity('Beach')">Beach</button>
+            <button onclick="doActivity('Lake')">Lake</button>
+            <button onclick="doActivity('Temple')">Temple</button>
+            <button onclick="doActivity('Mountain')">Mountain</button>
+        </div>
+        <div id="activity-beach" style="display: none;">
+            <button onclick="doActivity('Home')">Home</button>
+            <button onclick="doActivity('Beach')">Beach</button>
+            <button onclick="doActivity('Lake')">Lake</button>
+            <button onclick="doActivity('Temple')">Temple</button>
+            <button onclick="doActivity('Mountain')">Mountain</button>
+        </div>
     </div>
 
     <div id="game-container">
@@ -66,37 +96,21 @@
                     <div class="swiper-slide">
                         <img src="ayam ygy.png" onclick="selectAvatar('ucup ayam')" />
                     </div>
-            
                     <div class="swiper-slide">
                         <img src="bebek ygy.png" onclick="selectAvatar('ucup bebek')" />
                     </div>
-            
                     <div class="swiper-slide">
                         <img src="capi ygy.png" onclick="selectAvatar('ucup capybara')" />
                     </div>
                 </div>
-            
-        
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-             
                 <div class="swiper-pagination"></div>
             </div>
             <div id="input-section">   
                 <input type="text" id="player-name" placeholder="Masukkan nama">
                 <button id="next-button" onclick="startGame()">Next</button>
             </div>
-        </div>
-    </div>
-
-    <div id="game-interface" style="display: none;">
-        
-        <div id="locations">
-            <button onclick="moveTo('Home')">Home</button>
-            <button onclick="moveTo('Beach')">Beach</button>
-            <button onclick="moveTo('Lake')">Lake</button>
-            <button onclick="moveTo('Temple')">Temple</button>
-            <button onclick="moveTo('Mountain')">Mountain</button>
         </div>
     </div>
     <script src="script.js"></script>

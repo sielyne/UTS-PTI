@@ -24,22 +24,25 @@ body {
     width: 100%;
     padding: 5px;
     z-index: 1000;
-    height: 10vh;
+    height: 6vh;
     justify-content: center;
     align-items: center;
+    max-height: 8vh;
+    max-width: 100%;
 }
 
 #status {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.66);
-    position: absolute;
-    top: 6vh;
+    background-color: rgba(103, 164, 255, 0.6);
+    position: fixed;
+    top: 8vh;
     width: 100%;
-    align-items: center;
-    max-width: 100%;
+    max-width: 99%;
     left: 0;
+    font-weight: bold;
+    right: 0;
 }
 
 #greeting-time {
@@ -47,6 +50,7 @@ body {
     justify-content: space-between;
     width: 100%; 
     margin-bottom: 10px; 
+    right: 1vh;
 }
 
 #status-life {
@@ -64,7 +68,6 @@ body {
 }
 
 #title h1 {
-    font-size: auto;
     max-width: fit-content;
     margin: auto;
 }
@@ -208,4 +211,18 @@ body {
     display: flex;
     height: 100%;
     background: green;
+}
+
+.game-interface {
+    background-image: url();
+}
+
+.activity-details {
+    display: flex;
+    position: fixed;
+    justify-content: flex-end;
+    align-items: flex-end;
+    right: 0;
+    background-color: darkgreen;
+    flex-direction: column;
 }
