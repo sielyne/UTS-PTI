@@ -42,6 +42,7 @@ function startGame() {
         return;
     }
     document.getElementById('game-container').style.display = 'none';
+    document.getElementById('main-container').style.display = 'grid';
     document.getElementById('status').style.display = 'flex';
     document.getElementById('game-interface').style.display = 'flex';
     document.getElementById('activity-details').style.display = 'flex';

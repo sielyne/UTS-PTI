@@ -14,77 +14,88 @@
         <h1>Ucup Menjelajah Nusantara</h1>
     </div>
 
-    <div id="status" style="display: none;">
-        <div id="status-container">
-            <div id="greeting-time">
-                <span id="greeting">Good Afternoon!</span>
-                <span id="current-time">12:00 PM</span>
-            </div>
-            <div id="status-life">
-                <div class="life-bar">
-                    <span>Happiness</span>
-                    <div class="bar"><div class="fill" id="happiness-bar" style="width: 50%;"></div></div>
-                    <span id="happiness">50</span>
+    <div id="main-container" style="display: none;">
+        <div id="status" style="display: none;">
+            <div id="status-container">
+                <div id="greeting-time">
+                    <span id="greeting">Good Afternoon!</span>
+                    <span id="current-time">12:00 PM</span>
                 </div>
-                <div class="life-bar">
-                    <span>Hunger</span>
-                    <div class="bar"><div class="fill" id="hunger-bar" style="width: 50%;"></div></div>
-                    <span id="hunger">50</span>
-                </div>
-                <div class="life-bar">
-                    <span>Money</span>
-                    <div class="bar"><div class="fill" id="money-bar" style="width: 50%;"></div></div>
-                    <span id="money">Rp. 25.000.000</span>
-                </div>
-                <div class="life-bar">
-                    <span>Hygiene</span>
-                    <div class="bar"><div class="fill" id="hygiene-bar" style="width: 50%;"></div></div>
-                    <span id="hygiene">50</span>
-                </div>
-                <div class="life-bar">
-                    <span>Energy</span>
-                    <div class="bar"><div class="fill" id="energy-bar" style="width: 50%;"></div></div>
-                    <span id="energy">50</span>
+                <div id="status-life">
+                    <div class="life-bar">
+                        <span>Happiness</span>
+                        <div class="bar"><div class="fill" id="happiness-bar" style="width: 50%;"></div></div>
+                        <span id="happiness">50</span>
+                    </div>
+                    <div class="life-bar">
+                        <span>Hunger</span>
+                        <div class="bar"><div class="fill" id="hunger-bar" style="width: 50%;"></div></div>
+                        <span id="hunger">50</span>
+                    </div>
+                    <div class="life-bar">
+                        <span>Money</span>
+                        <div class="bar"><div class="fill" id="money-bar" style="width: 50%;"></div></div>
+                        <span id="money">Rp. 25.000.000</span>
+                    </div>
+                    <div class="life-bar">
+                        <span>Hygiene</span>
+                        <div class="bar"><div class="fill" id="hygiene-bar" style="width: 50%;"></div></div>
+                        <span id="hygiene">50</span>
+                    </div>
+                    <div class="life-bar">
+                        <span>Energy</span>
+                        <div class="bar"><div class="fill" id="energy-bar" style="width: 50%;"></div></div>
+                        <span id="energy">50</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="activity-details" style="display: none;">
-        <div id="activity-home">
-            <button onclick="doActivity('Work')">Work</button>
-            <button onclick="doActivity('Eat')">Eat</button>
-            <button onclick="doActivity('Swim')">Swim</button>
-            <button onclick="doActivity('Clean')">Clean</button>
-            <button onclick="doActivity('Sleep')">Sleep</button>
+        <div id="activity-details" style="display: none;">
+            <div id="activity-home">
+                <button onclick="doActivity('Work')">Work</button>
+                <button onclick="doActivity('Eat')">Eat</button>
+                <button onclick="doActivity('Swim')">Swim</button>
+                <button onclick="doActivity('Clean')">Clean</button>
+                <button onclick="doActivity('Sleep')">Sleep</button>
+            </div>
+            <div id="activity-lake" style="display: none;">
+                <button onclick="doActivity('Work')">Work</button>
+                <button onclick="doActivity('Eat')">Eat</button>
+                <button onclick="doActivity('Swim')">Swim</button>
+                <button onclick="doActivity('Clean')">Clean</button>
+                <button onclick="doActivity('Sleep')">Sleep</button>
+            </div>
+            <div id="activity-mountain" style="display: none;">
+                <button onclick="doActivity('Work')">Work</button>
+                <button onclick="doActivity('Eat')">Eat</button>
+                <button onclick="doActivity('Swim')">Swim</button>
+                <button onclick="doActivity('Clean')">Clean</button>
+                <button onclick="doActivity('Sleep')">Mountain</button>
+            </div>
+            <div id="activity-temple" style="display: none;">
+                <button onclick="doActivity('Work')">Work</button>
+                <button onclick="doActivity('Eat')">Eat</button>
+                <button onclick="doActivity('Swim')">Swim</button>
+                <button onclick="doActivity('Clean')">Temple</button>
+                <button onclick="doActivity('Sleep')">Mountain</button>
+            </div>
+            <div id="activity-beach" style="display: none;">
+                <button onclick="doActivity('Work')">Work</button>
+                <button onclick="doActivity('Eat')">Eat</button>
+                <button onclick="doActivity('Swim')">Lake</button>
+                <button onclick="doActivity('Clean')">Temple</button>
+                <button onclick="doActivity('Sleep')">Mountain</button>
+            </div>
         </div>
-        <div id="activity-lake" style="display: none;">
-            <button onclick="doActivity('Work')">Work</button>
-            <button onclick="doActivity('Eat')">Eat</button>
-            <button onclick="doActivity('Swim')">Swim</button>
-            <button onclick="doActivity('Clean')">Clean</button>
-            <button onclick="doActivity('Sleep')">Sleep</button>
-        </div>
-        <div id="activity-mountain" style="display: none;">
-            <button onclick="doActivity('Work')">Work</button>
-            <button onclick="doActivity('Eat')">Eat</button>
-            <button onclick="doActivity('Swim')">Swim</button>
-            <button onclick="doActivity('Clean')">Clean</button>
-            <button onclick="doActivity('Sleep')">Mountain</button>
-        </div>
-        <div id="activity-temple" style="display: none;">
-            <button onclick="doActivity('Work')">Work</button>
-            <button onclick="doActivity('Eat')">Eat</button>
-            <button onclick="doActivity('Swim')">Swim</button>
-            <button onclick="doActivity('Clean')">Temple</button>
-            <button onclick="doActivity('Sleep')">Mountain</button>
-        </div>
-        <div id="activity-beach" style="display: none;">
-            <button onclick="doActivity('Work')">Work</button>
-            <button onclick="doActivity('Eat')">Eat</button>
-            <button onclick="doActivity('Swim')">Lake</button>
-            <button onclick="doActivity('Clean')">Temple</button>
-            <button onclick="doActivity('Sleep')">Mountain</button>
+        <div id="game-interface" style="display: none;">
+            <div id="locations">
+                <button onclick="moveTo('Home')">Home</button>
+                <button onclick="moveTo('Beach')">Beach</button>
+                <button onclick="moveTo('Lake')">Lake</button>
+                <button onclick="moveTo('Temple')">Temple</button>
+                <button onclick="moveTo('Mountain')">Mountain</button>
+            </div>
         </div>
     </div>
 
@@ -111,16 +122,6 @@
                 <input type="text" id="player-name" placeholder="Masukkan nama">
                 <button id="next-button" onclick="startGame()">Next</button>
             </div>
-        </div>
-    </div>
-
-    <div id="game-interface" style="display: none;">
-        <div id="locations">
-            <button onclick="moveTo('Home')">Home</button>
-            <button onclick="moveTo('Beach')">Beach</button>
-            <button onclick="moveTo('Lake')">Lake</button>
-            <button onclick="moveTo('Temple')">Temple</button>
-            <button onclick="moveTo('Mountain')">Mountain</button>
         </div>
     </div>
 
