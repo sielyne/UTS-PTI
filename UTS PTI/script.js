@@ -27,20 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-let swiper = new Swiper('.swiper-container', {
-    loop: true,
-    autoplay: { delay: 2500 },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        ArrowLeft: '.swiper-button-prev',
-        ArrowRight: '.swiper-button-next',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    }
-});
 
 function selectAvatar(selectedAvatar) {
     avatar = selectedAvatar;
@@ -57,8 +43,9 @@ function startGame() {
     }
     document.getElementById('game-container').style.display = 'none';
     document.getElementById('status').style.display = 'flex';
-    document.getElementById('game-interface').style.display = 'block';
-    document.getElementById('activity-details').style.display = 'block';
+    document.getElementById('game-interface').style.display = 'flex';
+    document.getElementById('activity-details').style.display = 'flex';
+    document.getElementById('activity-home').style.display = 'block';
     updateGreeting();
     updateStatus();
 }
@@ -86,13 +73,13 @@ function updateStatus() {
     document.getElementById('energy').innerText = energy;
     document.getElementById('happiness').innerText = happiness;
     document.getElementById('money').innerText = money;
-    document.getElementById('health').innerText = money;
-    
+    document.getElementById('hygiene').innerText = hygiene;
+    let maxMoney = 1000;
     document.getElementById('happiness-bar').style.width = happiness + '%';
     document.getElementById('hunger-bar').style.width = hunger + '%';
-    document.getElementById('money-bar').style.width = (money / 100) * 100 + '%';
+    document.getElementById('money-bar').style.width = (money / maxMoney) * 100 + '%';
     document.getElementById('energy-bar').style.width = energy + '%';
-    document.getElementById('health-bar').style.width = health + '%';
+    document.getElementById('hygiene-bar').style.width = hygiene + '%';
 
 }
 
@@ -100,10 +87,43 @@ function moveTo(location) {
     if (money < 10) {
         alert('Uang anda belum mencukupi untuk pergi');
         return;
+    } else if (energy < 10) {
+        alert('Anda kehabisan energi! Kembali ke rumah.');
+        return;
     }
+
     alert(`Anda telah pergi ke ${location}`);
     happiness = Math.min(happiness + 10, 100);
-    money -= 10;
+    money = Math.max(money - 10, 0);
+    energy = Math.max(energy - 10, 0);
+    updateStatus();
+
+    document.getElementById('activity-home').style.display = 'none';
+    document.getElementById('activity-beach').style.display = 'none';
+    document.getElementById('activity-lake').style.display = 'none';
+    document.getElementById('activity-temple').style.display = 'none';
+    document.getElementById('activity-mountain').style.display = 'none';
+
+    switch (location) {
+        case 'Home':
+            document.getElementById('activity-home').style.display = 'block';
+            break;
+        case 'Beach':
+            document.getElementById('activity-beach').style.display = 'block';
+            break;
+        case 'Lake':
+            document.getElementById('activity-lake').style.display = 'block';
+            break;
+        case 'Temple':
+            document.getElementById('activity-temple').style.display = 'block';
+            break;
+        case 'Mountain':
+            document.getElementById('activity-mountain').style.display = 'block';
+            break;
+        default:
+            console.error('Lokasi tidak dikenal');
+            break;
+    }
     updateStatus();
 }
 

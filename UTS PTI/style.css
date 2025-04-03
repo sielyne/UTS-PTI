@@ -68,8 +68,15 @@ body {
 }
 
 #title h1 {
-    max-width: fit-content;
-    margin: auto;
+    font-size: 2rem;
+    white-space: nowrap;
+}
+
+#title img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+
 }
 
 #game-container {
@@ -213,16 +220,53 @@ body {
     background: green;
 }
 
-.game-interface {
-    background-image: url();
+#game-interface {
+    background-image: url(map-game.jpg);
 }
 
-.activity-details {
+#activity-details {
     display: flex;
     position: fixed;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: flex-start;
+    align-items: flex-start;
     right: 0;
-    background-color: darkgreen;
+    background-color: rgb(22, 125, 112);
     flex-direction: column;
+    height: 80vh;
+    top: 21.5vh;
+    text-align: start;
+    padding: 10px;
+    width: 150px;
+    max-width: 300px;
 }
+
+
+@media (max-width: 600px) {
+    #title {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+    
+    #title img {
+        width: 40px;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    #title h1 {
+        font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+        #activity-details {
+            width: 100%; 
+            height: auto; 
+            max-height: none;
+            position: static;
+        }
+    }
+}
+
+
+
