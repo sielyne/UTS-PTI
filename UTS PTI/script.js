@@ -9,19 +9,18 @@ let player = {
     location: "Home"
 };
 
-// Game time variables
 let gameTime = {
     hour: 8,
     minute: 0,
     day: 1
 };
 
-// Time conversion: 1 second real time = 1 minute game time
+// Time 1 second real time = 1 minute game time
 const TIME_MULTIPLIER = 60;
 let gameInterval;
 let timeInterval;
 
-// Initialize Swiper
+// Swiper
 document.addEventListener('DOMContentLoaded', function() {
     const swiper = new Swiper('.swiper-container', {
         loop: true,
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Select avatar function
+// Select avatar 
 function selectAvatar(avatarName) {
     player.avatar = avatarName;
     const slides = document.querySelectorAll('.swiper-slide img');
@@ -46,7 +45,6 @@ function selectAvatar(avatarName) {
     event.target.style.border = '5px solid green';
 }
 
-// Start the game time
 function startGameTime() {
     timeInterval = setInterval(function() {
         gameTime.minute++;
@@ -126,14 +124,14 @@ function updateStatusBars() {
     document.getElementById('energy').textContent = player.energy;
     document.getElementById('energy-bar').style.width = `${player.energy}%`;
     
-    // Change color of bars based on level
+    // Change color of bars
     updateBarColors('happiness-bar', player.happiness);
     updateBarColors('hunger-bar', player.hunger);
     updateBarColors('hygiene-bar', player.hygiene);
     updateBarColors('energy-bar', player.energy);
 }
 
-// Update bar colors based on level
+// Update bar colors
 function updateBarColors(barId, value) {
     const bar = document.getElementById(barId);
     
