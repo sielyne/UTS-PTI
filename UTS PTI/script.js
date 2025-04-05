@@ -4,7 +4,7 @@ let hunger = 50;
 let energy = 50;
 let hygiene = 50;
 let happiness = 50;
-let money = 100;
+let money = 25000000;
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -73,19 +73,17 @@ function updateStatus() {
     document.getElementById('hunger').innerText = hunger;
     document.getElementById('energy').innerText = energy;
     document.getElementById('happiness').innerText = happiness;
-    document.getElementById('money').innerText = money;
     document.getElementById('hygiene').innerText = hygiene;
     let maxMoney = 1000;
     document.getElementById('happiness-bar').style.width = happiness + '%';
     document.getElementById('hunger-bar').style.width = hunger + '%';
-    document.getElementById('money-bar').style.width = (money / maxMoney) * 100 + '%';
     document.getElementById('energy-bar').style.width = energy + '%';
     document.getElementById('hygiene-bar').style.width = hygiene + '%';
 
 }
 
 function moveTo(location) {
-    if (money < 10) {
+    if (money < 1000000) {
         alert('Uang anda belum mencukupi untuk pergi');
         return;
     } else if (energy < 10) {
@@ -95,7 +93,7 @@ function moveTo(location) {
 
     alert(`Anda telah pergi ke ${location}`);
     happiness = Math.min(happiness + 10, 100);
-    money = Math.max(money - 10, 0);
+    money = Math.max(money - 1000000, 0);
     energy = Math.max(energy - 10, 0);
     updateStatus();
 

@@ -19,6 +19,7 @@
             <div id="status-container">
                 <div id="greeting-time">
                     <span id="greeting">Good Afternoon!</span>
+                    <span>Money(Rp.<span id="money">Rp. 25.000.000</span>)</span>
                     <span id="current-time">12:00 PM</span>
                 </div>
                 <div id="status-life">
@@ -31,11 +32,6 @@
                         <span>Hunger</span>
                         <div class="bar"><div class="fill" id="hunger-bar" style="width: 50%;"></div></div>
                         <span id="hunger">50</span>
-                    </div>
-                    <div class="life-bar">
-                        <span>Money</span>
-                        <div class="bar"><div class="fill" id="money-bar" style="width: 50%;"></div></div>
-                        <span id="money">Rp. 25.000.000</span>
                     </div>
                     <div class="life-bar">
                         <span>Hygiene</span>
@@ -87,14 +83,21 @@
                 <button onclick="doActivity('Clean')">Temple</button>
                 <button onclick="doActivity('Sleep')">Mountain</button>
             </div>
+            <div id="joystick">
+                <button id="up">▲</button>
+                <button id="left">◄</button>
+                <div></div>
+                <button id="right">►</button>
+                <button id="down">▼</button>
+            </div>
         </div>
         <div id="game-interface" style="display: none;">
             <div id="locations">
-                <button onclick="moveTo('Home')">Home</button>
-                <button onclick="moveTo('Beach')">Beach</button>
-                <button onclick="moveTo('Lake')">Lake</button>
-                <button onclick="moveTo('Temple')">Temple</button>
-                <button onclick="moveTo('Mountain')">Mountain</button>
+                <button id="Mountain" onclick="moveTo('Mountain')">Mountain</button>
+                <button id="Home" onclick="moveTo('Home')">Home</button>
+                <button id="Temple" onclick="moveTo('Temple')">Temple</button>
+                <button id="Lake" onclick="moveTo('Lake')">Lake</button>
+                <button id="Beach" onclick="moveTo('Beach')">Beach</button>
             </div>
         </div>
     </div>
