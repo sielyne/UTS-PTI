@@ -5,10 +5,11 @@ let energy = 50;
 let hygiene = 50;
 let happiness = 50;
 let money = 25000000;
-
+let lifeTick = 0;
+let swiper;
 
 document.addEventListener("DOMContentLoaded", function() {
-    var Swipes = new Swiper('.swiper-container', {
+    swiper = new Swiper('.swiper-container', {
         loop: true,
         speed: 1000,
         autoplay: {
@@ -32,6 +33,8 @@ function selectAvatar(selectedAvatar) {
     avatar = selectedAvatar;
     alert(`Avatar ${selectedAvatar} dipilih!`);
     swiper.autoplay.stop();
+    document.querySelector('.swiper-button-next').style.display = 'none';
+    document.querySelector('.swiper-button-prev').style.display = 'none';
 }
 
 
@@ -53,14 +56,24 @@ function startGame() {
 
 let gameTime = 0;
 function updateTime() {
-    gameTime++;
-    let gameHours = Math.floor(gameTime / 120) + 12;
-    let gameMinutes = gameTime % 60;
-    let formattedTime = `${gameHours % 24}:${String(gameMinutes).padStart(2, '0')} ${gameHours >= 12 ? 'PM' : 'AM'}`;
-    document.getElementById("current-time").innerText = formattedTime;
-    updateGreeting(gameHours);
+
+if (gameTime % 30 === 0) { 
+    hunger = Math.max(hunger - 1, 0);
+    energy = Math.max(energy - 1, 0);
+    happiness = Math.max(happiness - 1, 0);
+    hygiene = Math.max(hygiene - 1, 0);
+    updateStatus(); 
 }
+
+}
+let gameHours = Math.floor(gameTime / 120) + 12;
+let gameMinutes = gameTime % 60;
+let formattedTime = `${gameHours % 24}:${String(gameMinutes).padStart(2, '0')} ${gameHours % 24 >= 12 ? 'PM' : 'AM'}`;
+document.getElementById("current-time").innerText = formattedTime;
+updateGreeting(gameHours);
+
 setInterval(updateTime, 3000);
+
 
 function updateGreeting(hours) {
     let greeting = (hours >= 12 && hours < 17) ? "Good Afternoon" :
