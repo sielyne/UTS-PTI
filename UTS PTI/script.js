@@ -1,4 +1,3 @@
-// Game variables
 let player = {
     name: "",
     avatar: "",
