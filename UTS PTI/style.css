@@ -3,7 +3,7 @@ body {
     text-align: center;
     background-image: url("1.png");
     background-size: cover;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     background-position: center;
@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 95%;
-    margin: 0; /* Tambahkan margin: 0; untuk menghilangkan margin default body */
+    margin: 0; 
 }
 
 #main-container {
@@ -20,15 +20,15 @@ body {
     grid-template-columns: 5fr 1fr;
     height: 100vh;
     width: 100%;
-    gap: 0; /* Ubah gap menjadi 0 untuk menghilangkan rongga antar grid */
-    padding: 0; /* Ubah padding menjadi 0 untuk menghilangkan padding default */
-    margin: 0; /* Tambahkan margin: 0; untuk menghilangkan margin default main-container */
+    gap: 0;
+    padding: 0; 
+    margin: 0;
 }
 
 #title {
     background-color: #97d564;
     border-radius: 0;
-    margin: 0; /* Ubah margin menjadi 0 */
+    margin: 0; 
     display: flex;
     border: 5px solid #264b0f;
     top: 0;
@@ -56,7 +56,7 @@ body {
     right: 0;
     grid-column: span 2;
     z-index: 999;
-    width: 100%; /* Tambahkan width: 100%; untuk mengisi lebar grid */
+    width: 100%;
 }
 
 #greeting-time {
@@ -90,23 +90,24 @@ body {
     width: 50px;
     height: auto;
     margin-right: 10px;
-
+    display: flex;
 }
 
 #game-container {
     margin: auto;
-    width: 90%;
-    padding: 20px;
+    width: 80%;
+    padding: 30px;
     border: 5px solid #a8711d;
     border-radius: 10px;
     background-color: #ffffffbd;
-    align-items: center;
     flex-direction: column;
     max-width: 800px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     overflow: hidden;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 5%;
 }
 
 #avatar-selection{
@@ -156,7 +157,7 @@ body {
 
 
 .swiper-container {
-    width: 90%;
+    width: 80%;
     max-width: 700px;
     height: auto;
     margin: auto;
@@ -192,8 +193,8 @@ body {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
