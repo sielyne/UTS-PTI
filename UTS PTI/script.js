@@ -64,7 +64,6 @@ if (gameTime % 30 === 0) {
     hygiene = Math.max(hygiene - 1, 0);
     updateStatus(); 
 }
-
 }
 let gameHours = Math.floor(gameTime / 120) + 12;
 let gameMinutes = gameTime % 60;
