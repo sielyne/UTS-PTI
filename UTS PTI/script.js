@@ -32,6 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
+        },
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
         }
     });
 });
@@ -91,12 +95,37 @@ function checkGameOver() {
         else if (player.energy <= 0) cause = "exhaustion";
         else if (player.happiness <= 0) cause = "depression";
         
+        const gameOverScreen = document.getElementById('game-over-screen');
+        gameOverScreen.querySelectorAll('img').forEach(img => img.style.display = 'none');
+
+        let avatarKey = '';
+        if (player.avatar.includes('ayam')) avatarKey = 'chick';
+        else if (player.avatar.includes('bebek')) avatarKey = 'duck';
+        else if (player.avatar.includes('capi')) avatarKey = 'capy';
+
+        // Tampilkan gif yang sesuai
+        const avatarImage = gameOverScreen.querySelector(`img[src*="${avatarKey}"]`);
+        if (avatarImage) {
+            avatarImage.style.display = 'block';
+
+        }
+
+        // Tampilkan layar game over
+        gameOverScreen.style.display = 'flex';
+        const status = document.getElementById('status');
+        status.style.display = 'none';
+        document.getElementById('avatar-display').style.display = 'none';
+        document.getElementById('joystick').style.display = 'none'; 
+        document.getElementById('status').style.display = 'none';
+
+
+        // Tampilkan pesan game over
         alert(`Game Over! ${player.name} died from ${cause}.`);
-        
+
         // Reset game
         setTimeout(function() {
             location.reload();
-        }, 2000);
+        }, 4500);
     }
 }
 
@@ -378,30 +407,59 @@ function doActivity(activity) {
 }
 // Add event listeners for joystick movement
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('up').addEventListener('click', function() {
-        if (player.location === 'Home') moveTo('Mountain');
-        else if (player.location === 'Lake') moveTo('Home');
-        else if (player.location === 'Beach') moveTo('Temple');
-        else if (player.location === 'Temple') moveTo('Mountain');
+    const upButton = document.getElementById('up');
+    const downButton = document.getElementById('down');
+    const leftButton = document.getElementById('left');
+    const rightButton = document.getElementById('right');
+
+    function handleDirection(direction) {
+        if (direction === 'up') {
+            if (player.location === 'Home') moveTo('Mountain');
+            else if (player.location === 'Lake') moveTo('Home');
+            else if (player.location === 'Beach') moveTo('Temple');
+            else if (player.location === 'Temple') moveTo('Mountain');
+        } else if (direction === 'down') {
+            if (player.location === 'Home') moveTo('Lake');
+            else if (player.location === 'Mountain') moveTo('Temple');
+            else if (player.location === 'Temple') moveTo('Beach');
+            else if (player.location === 'Beach') moveTo('Lake');
+        } else if (direction === 'left') {
+            if (player.location === 'Mountain') moveTo('Home');
+            else if (player.location === 'Temple') moveTo('Home');
+            else if (player.location === 'Beach') moveTo('Lake');
+        } else if (direction === 'right') {
+            if (player.location === 'Home') moveTo('Temple');
+            else if (player.location === 'Lake') moveTo('Beach');
+            else if (player.location === 'Temple') moveTo('Mountain');
+        }
+    }
+
+    upButton.addEventListener('click', function() {
+        handleDirection('up');
     });
-    
-    document.getElementById('down').addEventListener('click', function() {
-        if (player.location === 'Home') moveTo('Lake');
-        else if (player.location === 'Mountain') moveTo('Temple');
-        else if (player.location === 'Temple') moveTo('Beach');
-        else if (player.location === 'Beach') moveTo('Lake');
+
+    downButton.addEventListener('click', function() {
+        handleDirection('down');
     });
-    
-    document.getElementById('left').addEventListener('click', function() {
-        if (player.location === 'Mountain') moveTo('Home');
-        else if (player.location === 'Temple') moveTo('Home');
-        else if (player.location === 'Beach') moveTo('Lake');
+
+    leftButton.addEventListener('click', function() {
+        handleDirection('left');
     });
-    
-    document.getElementById('right').addEventListener('click', function() {
-        if (player.location === 'Home') moveTo('Temple');
-        else if (player.location === 'Lake') moveTo('Beach');
-        else if (player.location === 'Temple') moveTo('Mountain');
+
+    rightButton.addEventListener('click', function() {
+        handleDirection('right');
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowUp') {
+            handleDirection('up');
+        } else if (event.key === 'ArrowDown') {
+            handleDirection('down');
+        } else if (event.key === 'ArrowLeft') {
+            handleDirection('left');
+        } else if (event.key === 'ArrowRight') {
+            handleDirection('right');
+        }
     });
 });
 
