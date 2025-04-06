@@ -1,3 +1,4 @@
+
 let player = {
     name: "",
     avatar: "",
@@ -52,6 +53,10 @@ function startGameTime() {
         if (gameTime.minute >= 60) {
             gameTime.hour++;
             gameTime.minute = 0;
+
+            if(gameTime.hour % 6 === 0) {
+                decreasePlayerStatus();
+            }
         }
         
         if (gameTime.hour >= 24) {
@@ -63,6 +68,17 @@ function startGameTime() {
         updateGreeting();
     }, 1000 / TIME_MULTIPLIER); // 1 second real time = 1 minute game time
 }
+
+function decreasePlayerStatus() {
+    player.hunger = Math.max(0, player.hunger - 1);
+    player.hygiene = Math.max(0, player.hygiene - 1);
+    player.energy = Math.max(0, player.energy - 1);
+    player.happiness = Math.max(0, player.happiness - 1);
+
+    updateStatusBars();
+    checkGameOver();
+}
+
 
 // Check if game is over
 function checkGameOver() {
@@ -182,13 +198,13 @@ function startGame() {
     updateGreeting();
     
     // Initialize location to Home
-    moveTo('Home');
+    moveTo('Home', true);
 }
 
 // Move to a specific location
-function moveTo(location) {
+function moveTo(location, isInitial = false) {
     // Check if player has enough energy
-    if (player.energy < 5) {
+    if (!isInitial && player.energy < 5) {
         alert("You don't have enough energy to move!");
         return;
     }
@@ -216,10 +232,14 @@ function moveTo(location) {
     player.location = location;
     
     // Moving costs energy
-    player.energy -= 5;
+    if (!isInitial) {
+        player.energy -= 5;
+    }
+
     updateStatusBars();
     checkGameOver();
 }
+
 
 // Activity functions
 function doActivity(activity) {
@@ -384,3 +404,5 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (player.location === 'Temple') moveTo('Mountain');
     });
 });
+
+
