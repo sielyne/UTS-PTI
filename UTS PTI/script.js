@@ -461,6 +461,20 @@ document.addEventListener('DOMContentLoaded', function() {
             handleDirection('right');
         }
     });
+    function checkGameOver() {
+        if (
+          player.hunger <= 0 ||
+          player.energy <= 0 ||
+          player.happiness <= 0 ||
+          player.hygiene <= 0
+        ) {
+          document.getElementById("game-over-screen").style.display = "flex";
+         
+          const activityButtons = document.querySelectorAll(".activity-panel button");
+          activityButtons.forEach(btn => btn.disabled = true);
+          
+        }
+      }
+      
 });
-
 
