@@ -547,3 +547,47 @@ body {
     height: 100%;
     margin-bottom: 20px;
 }
+
+
+#avatar-display {
+    transition: top 0.8s ease, left 0.8s ease;
+  }
+  
+ 
+  #game-over-screen h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  #game-over-screen button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #ffb700;
+    color: black;
+    border: 2px solid #8d6200;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  #game-over-screen button:hover {
+    background-color: #f1c40f;
+    transform: scale(1.1);
+  }
+  
+  .info-icon:hover,
+  .activity-option:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+  }
+  
+  body.fade-in {
+    animation: fadeIn 1s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
