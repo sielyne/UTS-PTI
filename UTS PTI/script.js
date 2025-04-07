@@ -475,6 +475,32 @@ document.addEventListener('DOMContentLoaded', function() {
           
         }
       }
-      
 });
+
+function performChores() {
+    if (activity === "Clean") {
+        hygiene -= 10; 
+        energy -= 5;
+        logActivity(`Did some chores. Hygiene decreased by ${hygienePenalty}.`);
+    }
+}
+
+function travelTo(location) {
+    let canIncreaseHappiness = hunger > 30 && energy > 30;
+
+    if (location === lastVisitedLocation) {
+        happiness -= 2;
+        logActivity("Visiting the same place again... happiness decreased.");
+    } else {
+        if (canIncreaseHappiness) {
+            happiness += 5;
+            logActivity("Exploring a new place! Happiness increased.");
+        } else {
+            logActivity("Too hungry or sleepy to enjoy the trip.");
+        }
+    }
+
+    lastVisitedLocation = location;
+    energy -= 10;
+}
 
