@@ -8,6 +8,23 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>Ucup Menjelajah Nusantara</title>
 </head>
+<script>
+
+    document.body.classList.add("fade-in");
+
+    function checkGameOver() {
+      if (
+        player.hunger <= 0 ||
+        player.energy <= 0 ||
+        player.happiness <= 0 ||
+        player.hygiene <= 0
+      ) {
+        document.getElementById("game-over-screen").style.display = "flex";
+      }
+    }
+  
+  </script>
+  
 <body>
     <div id="title">
         <img src="logo1.png">
@@ -176,6 +193,8 @@
             <img src="gmvr_capy.gif" alt="Game Over">
             <img src="gmvr_duck.gif" alt="Game Over">
             <img src="gmvr_chick.gif" alt="Game Over">
+            <h2>Game Over</h2>
+            <button onclick="location.reload()">Restart Game</button>
         </div>
 
         <div id="joystick">
