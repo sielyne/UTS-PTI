@@ -263,6 +263,8 @@ function moveTo(location, isInitial = false) {
     // Moving costs energy
     if (!isInitial) {
         player.energy -= 5;
+        player.money -= 500000;
+
     }
 
     updateStatusBars();
