@@ -1,6 +1,6 @@
 # Anggota Kelompok:
    # Sielyne Dwi Putri(00000111979);
-   # Cecilia Wijaya();
+   # Cecilia Wijaya(00000112176);
    # Cleverly Victori Aurselia Langitan(00000133646).
 
 # Ucup Menjelajah Nusantara
