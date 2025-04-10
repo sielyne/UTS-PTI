@@ -1,4 +1,3 @@
-
 let player = {
     name: "",
     avatar: "",
@@ -16,7 +15,6 @@ let gameTime = {
     day: 1
 };
 
-// Time 1 second real time = 1 minute game time
 const TIME_MULTIPLIER = 60;
 let gameInterval;
 let timeInterval;
@@ -50,6 +48,7 @@ function selectAvatar(avatarName) {
     event.target.style.border = '5px solid green';
 }
 
+// Start Game Time
 function startGameTime() {
     timeInterval = setInterval(function() {
         gameTime.minute++;
@@ -70,9 +69,10 @@ function startGameTime() {
         
         updateTimeDisplay();
         updateGreeting();
-    }, 1000 / TIME_MULTIPLIER); // 1 second real time = 1 minute game time
+    }, 1000 / TIME_MULTIPLIER);
 }
 
+// Player Status
 function decreasePlayerStatus() {
     player.hunger = Math.max(0, player.hunger - 1);
     player.hygiene = Math.max(0, player.hygiene - 1);
@@ -103,23 +103,21 @@ function checkGameOver() {
         else if (player.avatar.includes('bebek')) avatarKey = 'duck';
         else if (player.avatar.includes('capi')) avatarKey = 'capy';
 
-        // Tampilkan gif yang sesuai
+        // GIF Display
         const avatarImage = gameOverScreen.querySelector(`img[src*="${avatarKey}"]`);
         if (avatarImage) {
             avatarImage.style.display = 'block';
 
         }
 
-        // Tampilkan layar game over
+        //  Game Over Display
         gameOverScreen.style.display = 'flex';
         const status = document.getElementById('status');
         status.style.display = 'none';
         document.getElementById('avatar-display').style.display = 'none';
         document.getElementById('joystick').style.display = 'none'; 
         document.getElementById('status').style.display = 'none';
-
-
-        // Tampilkan pesan game over
+        
         alert(`Game Over! ${player.name} died from ${cause}.`);
 
         // Reset game
@@ -136,7 +134,7 @@ function updateTimeDisplay() {
     document.getElementById('current-time').textContent = `Day ${gameTime.day} - ${hourFormatted}:${minuteFormatted}`;
 }
 
-// Update greeting based on time of day
+// Greeting based on time of day
 function updateGreeting() {
     let greeting = "";
     
@@ -205,28 +203,20 @@ function startGame() {
 
     player.name = playerName;
     
-    // Hide the game container and show the main game
     document.getElementById('game-container').style.display = 'none';
     document.getElementById('main-container').style.display = 'grid';
     document.getElementById('status').style.display = 'flex';
     document.getElementById('game-interface').style.display = 'grid';
     document.getElementById('activity-details').style.display = 'flex';
-    
-    // Setup and display the avatar
+
+    // Avatar Display
     const avatarDisplay = document.getElementById('avatar-display');
     avatarDisplay.src = player.avatar;
     avatarDisplay.style.display = 'block';
-    
-    // Update the status bars
+
     updateStatusBars();
-    
-    // Start game time
     startGameTime();
-    
-    // Set initial greeting
     updateGreeting();
-    
-    // Initialize location to Home
     moveTo('Home', true);
 }
 
@@ -245,29 +235,24 @@ function moveTo(location, isInitial = false) {
         }
     });
     
-    // Show the appropriate activity panel
+    // appropriate activity panel
     document.getElementById(`activity-${location.toLowerCase()}`).style.display = 'block';
     
-    // Update avatar position based on the new location
+    // avatar position
     const avatar = document.getElementById('avatar-display');
-    
-    // Remove all position classes
     avatar.classList.remove('pos-home', 'pos-mountain', 'pos-lake', 'pos-temple', 'pos-beach');
-    
-    // Add the new position class
     avatar.classList.add(`pos-${location.toLowerCase()}`);
     
-    // Update player location
     player.location = location;
     
     // Moving costs energy
     if (!isInitial) {
         player.energy -= 5;
         player.money -= 500000;
-        player.happiness += 5;
-
+        if (player.happiness < 100) {
+            player.happiness = Math.min(player.happiness + 5, 100);
+        }
     }
-
     updateStatusBars();
     checkGameOver();
 }
@@ -399,13 +384,13 @@ function doActivity(activity) {
             break;
     }
     
-    // Ensure values don't go below 0
+    // Values not under 0
     player.happiness = Math.max(0, player.happiness);
     player.hunger = Math.max(0, player.hunger);
     player.hygiene = Math.max(0, player.hygiene);
     player.energy = Math.max(0, player.energy);
     
-    // Ensure values don't exceed 100
+    // Values not exceed 100
     player.happiness = Math.min(100, player.happiness);
     player.hunger = Math.min(100, player.hunger);
     player.hygiene = Math.min(100, player.hygiene);
@@ -414,7 +399,8 @@ function doActivity(activity) {
     updateStatusBars();
     checkGameOver();
 }
-// Add event listeners for joystick movement
+
+// joystick movement
 document.addEventListener('DOMContentLoaded', function() {
     const upButton = document.getElementById('up');
     const downButton = document.getElementById('down');
@@ -442,23 +428,18 @@ document.addEventListener('DOMContentLoaded', function() {
             else if (player.location === 'Temple') moveTo('Mountain');
         }
     }
-
     upButton.addEventListener('click', function() {
         handleDirection('up');
     });
-
     downButton.addEventListener('click', function() {
         handleDirection('down');
     });
-
     leftButton.addEventListener('click', function() {
         handleDirection('left');
     });
-
     rightButton.addEventListener('click', function() {
         handleDirection('right');
     });
-
     document.addEventListener('keydown', function(event) {
         if (event.key === 'ArrowUp') {
             handleDirection('up');
