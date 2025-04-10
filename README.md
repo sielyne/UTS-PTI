@@ -12,3 +12,23 @@
     4. Pemain dapat berpindah lokasi dengan biaya tertentu.
     5. jumlah uang dapat digunakan untuk beraktivitas dan dapat diperoleh kembali dengan bekerja.
     6. jika salah satu status bar habis, avatar mati dan restart ke awal permainan.
+
+## Grading Rubic
+    Application Interface and Documentation 
+    Application Interface : 7
+    Visual Assets : 8
+    README Documentation : 5
+    Presentation Video : 5
+
+    Game Features
+    Avatar Selection: 5
+    Player Status Display: 3
+    Status Degradation Over Time: 4
+    Game Time Simulation: 5
+    Navigation & Movement (Keyboard): 10
+    Navigation & Movement (Screen Buttons): 10
+    Interactive Activities : 10
+    Activity Information : 3
+
+    Creativity
+    Innovation in Gameplay & Features: 15
