@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -289,7 +288,6 @@ body {
     overflow-y: auto;
 }
 
-/* Activity panels */
 #activity-home, #activity-lake, #activity-mountain, #activity-temple, #activity-beach {
     display: flex;
     flex-direction: column;
@@ -414,7 +412,6 @@ body {
     grid-row: 3;
 }
 
-/* Avatar styling */
 #avatar-display {
     position: absolute;
     width: 100px;
@@ -424,7 +421,6 @@ body {
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 }
 
-/* Position for the avatar at each location */
 .pos-home {
     top: 35%;
     left: 20%;
@@ -450,7 +446,6 @@ body {
     left: 70%;
 }
 
-/* Make game responsive */
 @media (max-width: 900px) {
     #main-container {
         grid-template-columns: 1fr;
@@ -470,7 +465,7 @@ body {
         top: 0;
         width: 100%;
         height: auto;
-        padding-bottom: 70px; /* Space for joystick */
+        padding-bottom: 70px; 
     }
     
     #joystick {
