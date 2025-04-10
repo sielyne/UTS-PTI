@@ -309,11 +309,17 @@ function doActivity(activity) {
             break;
             
         case 'Play':
-            if (player.location === 'Beach' || player.location === 'Lake') {
+            if (player.location === 'Beach') {
                 player.happiness += 25;
                 player.energy -= 20;
                 player.hygiene -= 10;
                 alert(`You enjoyed swimming at ${player.location}. +25 Happiness, -20 Energy, -10 Hygiene`);
+            }
+            if (player.location === 'Lake') {
+                player.happiness += 25;
+                player.energy -= 20;
+                player.hygiene -= 10;
+                alert(`You enjoyed fishing at ${player.location}. +25 Happiness, -20 Energy, -10 Hygiene`);
             } else if (player.location === 'Mountain') {
                 player.happiness += 30;
                 player.energy -= 25;
