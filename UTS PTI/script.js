@@ -264,6 +264,7 @@ function moveTo(location, isInitial = false) {
     if (!isInitial) {
         player.energy -= 5;
         player.money -= 500000;
+        player.happiness += 5;
 
     }
 
